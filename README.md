@@ -1,6 +1,6 @@
 # Estudaê - Gerenciador de Tarefas Escolares
 
-Trabalho 01 de Programação Web - IFAL - Turma 913-A - Prof. Flavio Mota Medeiros.
+Trabalho 01 de PRMO - IFAL - Turma 913-A - Prof. Flavio Mota Medeiros.
 
 O Estudaê ajuda estudantes a organizar suas atividades: cadastrar disciplinas, criar tarefas, acompanhar prazos e marcar tarefas como concluídas.
 
