@@ -1,6 +1,6 @@
 # Estudaê - Gerenciador de Tarefas Escolares
 
-Trabalho 01 de PRMO - IFAL - Turma 913-A - Prof. Flavio Mota Medeiros.
+Trabalho 01 de Programação Web - IFAL - Turma 913-A - Prof. Flavio Mota Medeiros.
 
 O Estudaê ajuda estudantes a organizar suas atividades: cadastrar disciplinas, criar tarefas, acompanhar prazos e marcar tarefas como concluídas.
 
@@ -75,5 +75,4 @@ Exemplo de corpo (JSON) para `POST /api/tarefas`:
 Códigos de resposta usados: `200` (ok), `201` (criado), `204` (excluído, sem conteúdo), `400` (dados inválidos), `404` (não encontrado), `409` (conflito, ex.: e-mail repetido ou exclusão de usuário/disciplina que ainda tem tarefas), `500` (erro interno).
 
 ---
-
 

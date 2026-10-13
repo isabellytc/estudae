@@ -1,20 +1,13 @@
 // Estudaê - JavaScript do site (frontend)
-// Tudo que aparece na tela vem da API (fetch) e do banco Neon.
 
 const API = "/api";
 
-// Listas guardadas na memória apenas para desenhar a tela.
-// Os dados de verdade ficam no banco.
 let usuarios = [];
 let disciplinas = [];
-let todasTarefas = [];   // usada no painel da página inicial
-let tarefasFiltradas = []; // usada na página de tarefas
+let todasTarefas = [];   
+let tarefasFiltradas = []; 
 
-// ======================================================
-// FUNÇÕES AUXILIARES
-// ======================================================
 
-// Envia uma requisição para a API e devolve o JSON da resposta.
 async function chamarApi(caminho, metodo = "GET", dados = null) {
   const opcoes = { method: metodo, headers: {} };
 
@@ -25,7 +18,7 @@ async function chamarApi(caminho, metodo = "GET", dados = null) {
 
   const resposta = await fetch(API + caminho, opcoes);
 
-  if (resposta.status === 204) return null; // 204 = sem conteúdo (exclusão)
+  if (resposta.status === 204) return null; // 
 
   const json = await resposta.json();
   if (!resposta.ok) {
@@ -34,14 +27,14 @@ async function chamarApi(caminho, metodo = "GET", dados = null) {
   return json;
 }
 
-// Evita que um texto digitado vire código HTML na tela.
+
 function escapar(texto) {
   const div = document.createElement("div");
   div.textContent = texto == null ? "" : texto;
   return div.innerHTML;
 }
 
-// Mostra uma mensagem de sucesso ou erro no topo da página.
+
 function mostrarMensagem(texto, tipo) {
   const caixa = document.getElementById("mensagem");
   caixa.textContent = texto;
@@ -49,13 +42,13 @@ function mostrarMensagem(texto, tipo) {
   setTimeout(() => caixa.classList.add("escondido"), 4000);
 }
 
-// "2026-10-14" -> "14/10/2026"
+
 function formatarData(data) {
   const partes = data.split("-");
   return partes[2] + "/" + partes[1] + "/" + partes[0];
 }
 
-// Data de hoje no formato "AAAA-MM-DD"
+
 function dataDeHoje() {
   const hoje = new Date();
   const mes = String(hoje.getMonth() + 1).padStart(2, "0");
@@ -100,7 +93,6 @@ async function carregarDisciplinas() {
 }
 
 async function carregarTarefas() {
-  // Lê os filtros escolhidos e monta a URL, ex.: /tarefas?status=pendente
   const status = document.getElementById("filtro-status").value;
   const disciplinaId = document.getElementById("filtro-disciplina").value;
 
@@ -119,7 +111,7 @@ async function carregarPainel() {
   desenharPainel();
 }
 
-// Carrega tudo de uma vez (usado ao abrir o site e depois de alterações)
+// Carrega tudo de uma vez (ao abrir o site e depois de alterações)
 async function carregarTudo() {
   try {
     await Promise.all([
@@ -145,8 +137,7 @@ function desenharPainel() {
   document.getElementById("total-pendentes").textContent = pendentes.length;
   document.getElementById("total-concluidas").textContent = concluidas.length;
 
-  // Próximas atividades: tarefas não concluídas, as 5 com prazo mais próximo
-  // (a API já entrega as tarefas ordenadas por prazo)
+
   const proximas = todasTarefas.filter((t) => t.status !== "concluida").slice(0, 5);
   const lista = document.getElementById("lista-proximas");
 
@@ -251,7 +242,6 @@ function desenharUsuarios() {
     .join("");
 }
 
-// Coloca as disciplinas no filtro da página de tarefas
 function preencherFiltroDisciplinas() {
   const filtro = document.getElementById("filtro-disciplina");
   const escolhida = filtro.value;
@@ -273,7 +263,6 @@ function abrirFormTarefa(id) {
     return;
   }
 
-  // Preenche as listas de usuário e disciplina
   document.getElementById("tarefa-usuario").innerHTML = usuarios
     .map((u) => `<option value="${u.id}">${escapar(u.nome)}</option>`)
     .join("");
@@ -286,7 +275,6 @@ function abrirFormTarefa(id) {
   document.getElementById("titulo-form-tarefa").textContent = "Nova tarefa";
 
   if (id) {
-    // Edição: preenche o formulário com os dados da tarefa
     const tarefa = todasTarefas.find((t) => t.id === id);
     document.getElementById("titulo-form-tarefa").textContent = "Editar tarefa";
     document.getElementById("tarefa-id").value = tarefa.id;

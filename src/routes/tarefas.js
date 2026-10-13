@@ -53,7 +53,6 @@ router.get("/", async (req, res) => {
   }
 
   try {
-    // Quando o filtro não foi enviado, o valor é null e a condição é ignorada
     const resultado = await pool.query(
       SELECT_TAREFAS +
         ` WHERE ($1::text IS NULL OR t.status = $1)
@@ -129,7 +128,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// ALTERAR apenas o status (marcar como concluída, em andamento...)
+// ALTERAR apenas o status
 router.patch("/:id/status", async (req, res) => {
   const { id } = req.params;
   if (!idValido(id)) return res.status(400).json({ erro: "ID inválido." });

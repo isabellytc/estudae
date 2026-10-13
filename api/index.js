@@ -1,3 +1,1 @@
-// A Vercel executa este arquivo quando alguém acessa /api/...
-// Ele apenas entrega o app do Express para a Vercel.
 module.exports = require("../src/app");

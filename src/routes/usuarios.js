@@ -4,7 +4,7 @@ const { idValido, textoValido, tratarErro } = require("../util");
 
 const router = express.Router();
 
-// Confere nome e e-mail. Retorna a mensagem de erro, ou null se estiver tudo certo.
+// Confere nome e e-mail. 
 function validarUsuario(corpo) {
   if (!textoValido(corpo.nome)) return "O nome é obrigatório.";
   if (!textoValido(corpo.email)) return "O e-mail é obrigatório.";

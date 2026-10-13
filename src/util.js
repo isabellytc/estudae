@@ -1,17 +1,14 @@
 // Funções pequenas usadas pelas três rotas.
 
-// O ID precisa ser um número inteiro positivo (ex.: 1, 2, 15).
 function idValido(id) {
   const numero = Number(id);
   return Number.isInteger(numero) && numero > 0 && numero <= 2147483647;
 }
 
-// O valor precisa ser um texto que não está vazio.
 function textoValido(valor) {
   return typeof valor === "string" && valor.trim() !== "";
 }
 
-// Transforma erros do banco em respostas simples para o usuário.
 function tratarErro(res, erro) {
   console.error(erro);
 

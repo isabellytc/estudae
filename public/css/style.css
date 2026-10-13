@@ -1,12 +1,12 @@
-/* Estudaê - estilos do site (verde e vermelho do IFAL) */
+/* Estudaê - vizu do site */
 
 :root {
   /* Identidade visual do Estudaê (cores do IFAL) */
-  --verde: #176B42;            /* verde principal */
-  --verde-secundario: #258553; /* verde secundário (hover) */
+  --verde: #176B42;           
+  --verde-secundario: #258553; 
   --verde-escuro: #124F31;
   --verde-claro: #E3F1E8;
-  --vermelho: #C83B3B;         /* vermelho de destaque */
+  --vermelho: #C83B3B;         
   --vermelho-claro: #FBE9E9;
   --vermelho-escuro: #A32D2D;
   --fundo: #F4F8F4;

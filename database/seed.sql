@@ -1,7 +1,3 @@
--- Estudaê - dados de exemplo para a demonstração.
--- Execute DEPOIS do schema.sql, uma única vez.
--- Os prazos usam CURRENT_DATE para sempre aparecerem como "próximas atividades".
-
 INSERT INTO usuarios (nome, email) VALUES
   ('Ana Souza',   'ana.souza@exemplo.com'),
   ('Bruno Lima',  'bruno.lima@exemplo.com'),

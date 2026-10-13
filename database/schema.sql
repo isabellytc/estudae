@@ -1,6 +1,3 @@
--- Estudaê - criação das tabelas (PostgreSQL / Neon)
--- Execute este arquivo uma vez no SQL Editor do Neon.
-
 CREATE TABLE IF NOT EXISTS usuarios (
   id        SERIAL PRIMARY KEY,
   nome      VARCHAR(100) NOT NULL,
